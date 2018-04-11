@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfDataBindingInControls.TextBsAndSlider"  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   
+Title="TextBsAndSlider" Height="300" Width="300">
+    
+    
+    
+    <Grid>
+        <ProgressBar Height="10" Width="200" Maximum="{Binding ElementName=slider, Path=Maximum}" Value="{Binding ElementName=slider, Path=Value}" />
+        
+        <Slider HorizontalAlignment="Left" Margin="10,71,0,0"   
+Name="slider" VerticalAlignment="Top" Width="272"   
+Value="{Binding ElementName=textBox, Path=Text}"   
+Minimum="10" Maximum="20"/>
+        
+        <TextBlock HorizontalAlignment="Left" Margin="10,107,0,0"   
+TextWrapping="Wrap" Text="Eminem" VerticalAlignment="Top" Width="272" Height="152" Name="textBlock"   
+FontSize="{Binding ElementName=slider, Path=Value}"/>
+        
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,26,0,0" Name="textBox"   
+TextWrapping="Wrap" VerticalAlignment="Top" Width="272"   
+Text="{Binding ElementName=slider, Path=Value}"/>
+    </Grid>
+</Window>

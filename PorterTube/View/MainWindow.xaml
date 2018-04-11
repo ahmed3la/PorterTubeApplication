@@ -1,0 +1,247 @@
+﻿<Window x:Class="PorterTube.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:z="http://schemas.microsoft.com/expression/2010/interactivity"
+        
+        xmlns:locals="clr-namespace:PorterTube.ViewModel"
+      
+        xmlns:viewMo="clr-namespace:PorterTube"
+        mc:Ignorable="d"
+        Title="Youtube Porter"
+          Icon="../Resources/images.png"
+          Height="800" Width="700" 
+        
+         Closing="OnClose" StateChanged="OnStateChanged" IsVisibleChanged="OnIsVisibleChanged"
+        >
+ 
+ 
+    <Window.TaskbarItemInfo >
+        <TaskbarItemInfo x:Name="tbii"  ProgressValue="{Binding ProgressValue}" ProgressState="Normal"></TaskbarItemInfo>
+    </Window.TaskbarItemInfo>
+  
+    <Grid >
+          
+            <Grid HorizontalAlignment="Left" Height="53" Margin="5,5,0,0" VerticalAlignment="Top" Width="557" >
+            <Grid.RowDefinitions >
+
+            </Grid.RowDefinitions>
+
+            <!--<Button x:Name="button" Content="Download" HorizontalAlignment="Left" Margin="406,10,0,0" VerticalAlignment="Top" Width="75" 
+                    CommandParameter="{Binding FullUrl}"
+                     Command="{Binding RelativeSource={RelativeSource AncestorType=Window},
+                                    Path=DataContext.DownloadCommand}"
+                    />-->
+            <TextBox  x:Name="txtURL" Text="{Binding FullUrl,Mode=TwoWay}" HorizontalAlignment="Left" Height="43" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427"/>
+<!--
+                <MenuItem Header="Remove"
+                        Command="{Binding RemoveCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+              FetchVideoCommand  -->
+            <Button  Content="Fetch Video" Margin="440,5,43,0" VerticalAlignment="Top" 
+                                             Command="{Binding FetchVideoCommand}"
+                        CommandParameter="{Binding FullUrl}" 
+                     />
+
+            <Button  Content="Download" Margin="439,28,42,0" VerticalAlignment="Top" 
+                                           Command="{Binding DownloadPush}" />
+
+        </Grid>
+
+
+
+        <ListView Margin="10,65,10,30" Name="lvVideos" ItemsSource="{Binding VideoDetails,Mode=TwoWay}"  >
+
+            <ListView.View>
+                <GridView >
+
+                    <GridViewColumn Header="Image" Width="28">
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+
+                                <CheckBox IsChecked="{Binding RelativeSource={RelativeSource AncestorType=Window},
+                                    Path=DataContext.IsAll}" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsActive}" ></CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                    <GridViewColumn Header="Image" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=ImageUrl}" ></Image>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Progress" Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <StackPanel >
+                                    <ProgressBar Width="87" Height="13" Value="{Binding ProgressPercentage,Mode=TwoWay}" ></ProgressBar>
+                                    <Label Content="{Binding ProgressPercentage }"/>
+                                </StackPanel>
+
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Title" Width="330">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Grid Name="test"  >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="75"/>
+                                            <ColumnDefinition Width="*"/>
+
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions >
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <Label Content="{Binding Titel }" Grid.Row="0" Grid.ColumnSpan="2" />
+                                        <!--<Label Content="Video Type" Grid.Column="0" Grid.Row="1"/>-->
+                                        <Label  Content="{Binding Path=SelectedVideoExtensionType.Titel}" Grid.Column="2" Grid.Row="2" Width="230"/>
+
+                                        <!--<ComboBox Visibility="{Binding Path=CanSelected}" Grid.Column="2" Grid.Row="1"   DisplayMemberPath="Titel" 
+                                                   ItemsSource="{Binding Path=VideoExtensionType}" 
+                                                    
+                                                  SelectedItem="{Binding SelectedVideoExtensionType,Mode=TwoWay}" Width="230"/>-->
+                                    </Grid>
+                                </StackPanel>
+
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                    <GridViewColumn  Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate >
+                                <StackPanel>
+                                     
+
+                                    <!--<Button  Content="Run" HorizontalAlignment="Left"    Width="75" 
+                                          CommandParameter="{Binding VideoID}"
+                                           Command="{Binding RelativeSource={RelativeSource AncestorType=Window},
+                                    Path=DataContext.OpenBrowser}" />-->
+
+                                    <!--<Button  Content="test" HorizontalAlignment="Left"    Width="75" 
+                                            >
+                                        <Button.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Header="Cut"/>
+                                                <MenuItem Header="Copy"/>
+                                                <MenuItem Header="Paste"/>
+                                            </ContextMenu>
+                                        </Button.ContextMenu>
+                                    </Button>-->
+
+
+
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+            <ListView.ContextMenu>
+                <ContextMenu Width="200">
+                    
+                    
+                    <MenuItem Header="Play"
+                        Command="{Binding PlayCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />                      
+                    <MenuItem Header="Download Video"
+                        Command="{Binding DownloadOneCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />  
+                    
+                    <MenuItem Header="Download By Browser"
+                        Command="{Binding DownloadByBrowserCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+                    <MenuItem Header="Show in Folder"
+                        Command="{Binding ShowinFolderCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+
+                    <MenuItem Header="Stop Download"
+                        Command="{Binding StopCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+                    <MenuItem Header="Stop All Download"
+                        Command="{Binding StopAllCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+                    <MenuItem Header="Remove"
+                        Command="{Binding RemoveCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+                    <MenuItem Header="Remove All"
+                        Command="{Binding RemoveAllCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu},
+                        Path=PlacementTarget.SelectedItem}" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+
+
+
+
+        
+        <StackPanel VerticalAlignment="Bottom" Margin="10,0,10,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+            
+            <Label Content="Product Development By Ahmed Ola" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"/>
+                <Label Content="E-Mail: Ahmed3la@gmail.com" HorizontalAlignment="Right"  Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+        </StackPanel>
+        
+        <Border Name="childWindow" Visibility="{Binding WindowVisibility}" Background="#88000000" >
+            <ContentControl Content="{Binding XmlContent}" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            HorizontalContentAlignment="Stretch" 
+                            VerticalContentAlignment="Stretch"
+                            Margin="10"
+                            >
+                
+            </ContentControl>
+        </Border>
+        
+        <Border Name="InternetWindow" Visibility="{Binding IsNetworkAvailable}" Background="#88000000"  >
+
+            <Label Background="Transparent"  FontSize="20" Content="The Internet is Not Available" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+ 
+        </Border>
+        
+        
+    </Grid>
+
+
+
+
+</Window>
