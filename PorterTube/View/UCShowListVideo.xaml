@@ -129,7 +129,10 @@
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Row="0" Grid.Column="0" Content="Download" Command="{Binding CommandGetList}" HorizontalAlignment="Left"  Margin="5"   Width="75"  />
+                <Button Grid.Row="0" Grid.Column="0" Content="Download" 
+                        Command="{Binding CommandGetList}" 
+                        IsEnabled="{Binding CustomEnabled}"
+                        HorizontalAlignment="Left"  Margin="5"   Width="75"  />
                 <CheckBox Grid.Row="0" Grid.Column="1" Content="Custome"  
                           IsChecked="{Binding IsCustome}" IsEnabled="{Binding CustomEnabled}"
                           VerticalAlignment="Center" HorizontalAlignment="Left"   Width="75"  Margin="5"  />
