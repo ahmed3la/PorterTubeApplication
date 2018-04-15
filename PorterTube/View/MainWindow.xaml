@@ -94,7 +94,7 @@
 
                     </GridViewColumn>
 
-                    <GridViewColumn Header="Title" Width="330">
+                    <GridViewColumn Header="Title" Width="400">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel>
@@ -128,13 +128,13 @@
 
                     </GridViewColumn>
 
-                    <GridViewColumn  Width="100" >
+                    <!--<GridViewColumn  Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate >
                                 <StackPanel>
                                      
 
-                                    <!--<Button  Content="Run" HorizontalAlignment="Left"    Width="75" 
+                                    <Button  Content="Run" HorizontalAlignment="Left"    Width="75" 
                                           CommandParameter="{Binding VideoID}"
                                            Command="{Binding RelativeSource={RelativeSource AncestorType=Window},
                                     Path=DataContext.OpenBrowser}" />-->
@@ -148,7 +148,7 @@
                                                 <MenuItem Header="Paste"/>
                                             </ContextMenu>
                                         </Button.ContextMenu>
-                                    </Button>-->
+                                    </Button>
 
 
 
@@ -156,7 +156,7 @@
 
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                    </GridViewColumn>-->
                 </GridView>
             </ListView.View>
 

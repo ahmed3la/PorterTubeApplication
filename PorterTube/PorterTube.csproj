@@ -132,6 +132,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Release\PorterTube.exe.config" />
+    <None Include="bin\Release\PorterTube.vshost.exe.config" />
+    <None Include="bin\Release\PorterTube.vshost.exe.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -191,6 +194,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sadyoutube.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Config\Loging.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Release\Config\Loging.txt" />
+    <Resource Include="bin\Release\forbidden.png" />
+    <Content Include="bin\Release\Newtonsoft.Json.dll" />
+    <Resource Include="bin\Release\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\Porter.Entity.dll" />
+    <Content Include="bin\Release\Porter.Entity.pdb" />
+    <Content Include="bin\Release\Porter.Model.dll" />
+    <Content Include="bin\Release\Porter.Model.pdb" />
+    <Content Include="bin\Release\PorterTube.exe" />
+    <Content Include="bin\Release\PorterTube.pdb" />
+    <Content Include="bin\Release\PorterTube.vshost.exe" />
+    <Resource Include="bin\Release\Resources\DownloadPorter.ico" />
+    <Resource Include="bin\Release\Resources\forbidden.png" />
+    <Resource Include="bin\Release\Resources\Forbidden_Symbol_Transparent.svg.png" />
+    <Resource Include="bin\Release\Resources\images.ico" />
+    <Resource Include="bin\Release\Resources\images.jpg" />
+    <Resource Include="bin\Release\Resources\images.png" />
+    <Resource Include="bin\Release\Resources\InternetNotAvailable.jpg" />
+    <Resource Include="bin\Release\Resources\sadyoutube.jpg" />
+    <Resource Include="bin\Release\Resources\Test.ico" />
+    <Resource Include="bin\Release\Resources\ximages.png" />
+    <Resource Include="bin\Release\Test.ico" />
+    <Content Include="bin\Release\YoutubeExtractor.dll" />
+    <Resource Include="bin\Release\YoutubeExtractor.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
