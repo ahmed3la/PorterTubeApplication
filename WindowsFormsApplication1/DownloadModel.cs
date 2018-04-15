@@ -23,8 +23,7 @@ namespace Porter.Model
         private static List<Porter.Entity.VideoDetails> GetListValidVideoDownload(ObservableCollection<Porter.Entity.VideoDetails> videoDetails,int take=1)
         {
             var push = videoDetails.Where(a =>
-            (a.DownlaodStatus == DownlaodStatus.None || a.DownlaodStatus == DownlaodStatus.None || a.DownlaodStatus == DownlaodStatus.Cancel)
-                                && a.IsActive == true)
+            (a.DownlaodStatus == DownlaodStatus.None || a.DownlaodStatus == DownlaodStatus.None || a.DownlaodStatus == DownlaodStatus.Cancel))//&& a.IsActive == true
                             .Take(take).ToList();
 
             return push;
