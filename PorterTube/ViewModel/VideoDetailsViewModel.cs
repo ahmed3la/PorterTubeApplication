@@ -321,14 +321,14 @@ namespace PorterTube
                 {
 
                     var childWindow = new PorterTube.ChildWindowView.ChildWindowView();
-                    childWindow.Closed += (list =>
+                    childWindow.Closed += ( list =>
                     {
 
                         customDownloadResolver(list);
                         if (list.Count > 0)
                         {
 
-                            System.Windows.Application.Current.Dispatcher.Invoke(() =>
+                            System.Windows.Application.Current.Dispatcher.Invoke(async () =>
                             {
                                 for (int i = VideoDetails.Count - 1; i >= 0; i--)
                                 {
@@ -338,11 +338,14 @@ namespace PorterTube
                                         VideoDetails.RemoveAt(i);
                                 }
 
-                                list.ToList().ForEach(a =>
-                                VideoDetails.Add(a));
-                            }
-                            );
+
+                                list.ToList().ForEach(a => VideoDetails.Add(a));
+
+                                await Loging.SaveList(VideoDetails);
+
+                            } );
                         }
+
                     });
                     //-------------------
                     var type = DownloadModel.GetUrlType(FullUrl);

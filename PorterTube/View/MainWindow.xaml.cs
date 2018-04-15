@@ -32,12 +32,12 @@ namespace PorterTube
         public MainWindow()
         {
             InitializeComponent();
-
+            //--------------------------------------
             childWindow.DataContext = ChildWindowManager.Instance;
             this.DataContext = new VideoDetailsViewModel();
-
+            //--------------------------------------
             this.Closed += MainWindow_Closed;
-
+            //--------------------------------------
             // initialise code here
             m_notifyIcon = new System.Windows.Forms.NotifyIcon();
             m_notifyIcon.BalloonTipText = "The PorterTube application has been minimised.";
@@ -48,6 +48,9 @@ namespace PorterTube
             m_notifyIcon.Icon = PorterTube.Properties.Resources.DownloadPorter;
  
             m_notifyIcon.Click += m_notifyIcon_Click;
+
+            //--------------------------------------
+            Title = "Youtube Porter 0." + DateTime.Now.ToString("yyyyMMdd");
         }
 
         private void M_notifyIcon_BalloonTipShown(object sender, EventArgs e)

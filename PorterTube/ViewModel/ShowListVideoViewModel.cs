@@ -19,7 +19,14 @@ namespace PorterTube.ViewModel
     {
 
         #region '======Property======'
-
+        private string title;
+        public string Title
+        {
+            get { return "Youtube Porter 1.1"; }
+            set { title = value;
+                RaisePropertyChanged("Title");
+            }
+        }
 
         private VideoExtensionType videoExtensionTypeCustome;
 
