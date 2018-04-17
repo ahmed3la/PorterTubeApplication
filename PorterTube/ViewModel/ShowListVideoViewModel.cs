@@ -35,6 +35,7 @@ namespace PorterTube.ViewModel
             get { return videoExtensionTypeCustome; }
             set {
 
+
                 videoExtensionTypeCustome = value;
 
                 RaisePropertyChanged("VideoExtensionTypeCustome");
@@ -115,9 +116,13 @@ namespace PorterTube.ViewModel
 
                 isCustome = value;
                 RaisePropertyChanged("IsCustome");
+                Thread thread = new Thread(() =>
+                {
+                    customeVideoExtensionType(value);
+                })
+                { IsBackground = true };
 
-                customeVideoExtensionType(value);
-
+                thread.Start();
             }
         }
         private ObservableCollection<Porter.Entity.VideoDetails> videoDetails;

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PorterTube.ChildWindowView
@@ -27,7 +28,7 @@ namespace PorterTube.ChildWindowView
         }
 
         public void Show<T>(T obj)
-        { 
+        {
             string strObj = obj.ToString();
             if (!string.IsNullOrEmpty(strObj))
             {

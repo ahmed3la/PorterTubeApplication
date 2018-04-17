@@ -298,8 +298,15 @@ namespace PorterTube
         {
             DownloadPush = new RelayCommand(o =>
             { 
-                IsDownloadAll = true; 
-                startDownload(IsDownloadAll);
+                IsDownloadAll = true;
+
+                Thread thread = new Thread(() =>
+                {
+                    startDownload(IsDownloadAll);
+                })
+                { IsBackground = true };
+                thread.Start();
+
             }, o => DownloadModel.ValidDownloadAll(VideoDetails));
         }
         private void configRelayCommand_FetchVideoCommand()
@@ -361,6 +368,8 @@ namespace PorterTube
                                 urlType = type.FirstOrDefault(a => a.Key == UrlType.List);
 
                                 childWindow.Show(urlType);
+
+
                             }
                             else if (ruslt.ToString() == "No")
                             {
