@@ -116,13 +116,13 @@ namespace PorterTube.ViewModel
 
                 isCustome = value;
                 RaisePropertyChanged("IsCustome");
-                Thread thread = new Thread(() =>
-                {
-                    customeVideoExtensionType(value);
-                })
-                { IsBackground = true };
-
-                thread.Start();
+ 
+                Task t = new Task(() =>
+                 {
+                     customeVideoExtensionType(value);
+                 });
+                t.Start();
+ 
             }
         }
         private ObservableCollection<Porter.Entity.VideoDetails> videoDetails;
@@ -205,13 +205,15 @@ namespace PorterTube.ViewModel
 
             configGetSelectedVideosCommand();
         }
+        
+        
 
         private void customeVideoExtensionType(bool custome)
-        {
+        { 
             ProgressExtensionType = 0;
             ProgressPercentage = "0 %";
 
-            VideoDetails.ToList().ForEach(a =>
+                VideoDetails.ToList().ForEach(a =>
                 {
                     a.VideoExtensionType = new ObservableCollection<VideoExtensionType>();
                     a.SelectedVideoExtensionType = null;
@@ -219,10 +221,10 @@ namespace PorterTube.ViewModel
 
                     if (custome)
                     {
-                        Thread thread = new Thread(() =>
+                        Task task = new Task(() =>
                         {
                             ObservableCollection<VideoExtensionType> listVideoExtension = new ObservableCollection<VideoExtensionType>();
-
+                           
                             listVideoExtension = Helper.CustomVideoInfo.getVideoExtensionType(a.Url, custome);
                             //Clear befor fill 
                             System.Windows.Application.Current.Dispatcher.Invoke(() =>// <--- HERE
@@ -245,12 +247,12 @@ namespace PorterTube.ViewModel
                                 if (ProgressExtensionType == VideoDetails.Count)
                                     ListVideoExtensionTypeCustom = DownloadModel.GetListVideoDetailsCustom(VideoDetails);
                             });
-                        })
-                        {
-                            IsBackground = true
-                        };
+                        }, cts.Token);
+                        //{
+                        //    IsBackground = true
+                        //};
 
-                        thread.Start();
+                        task.Start();
                     }
                     else
                     {
@@ -260,6 +262,7 @@ namespace PorterTube.ViewModel
                     }
 
                 });
+
         }
 
 
@@ -268,6 +271,9 @@ namespace PorterTube.ViewModel
         {
             if (Closed != null)
             {
+                if (cts.Token.CanBeCanceled)
+                    cts.Cancel();
+
                 VideoDetails = new ObservableCollection<VideoDetails>();
 
                 Closed(VideoDetails);
@@ -374,7 +380,7 @@ namespace PorterTube.ViewModel
         #region '======Fields======'
         public event Action<ObservableCollection<Porter.Entity.VideoDetails>> Closed;
         public event PropertyChangedEventHandler PropertyChanged;
-
+        CancellationTokenSource cts = new CancellationTokenSource();
         #endregion
 
 

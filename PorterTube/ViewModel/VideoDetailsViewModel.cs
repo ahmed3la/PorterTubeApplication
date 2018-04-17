@@ -300,12 +300,12 @@ namespace PorterTube
             { 
                 IsDownloadAll = true;
 
-                Thread thread = new Thread(() =>
+                Task task = new Task(() =>
                 {
                     startDownload(IsDownloadAll);
-                })
-                { IsBackground = true };
-                thread.Start();
+                });
+                //{ IsBackground = true };
+                task.Start();
 
             }, o => DownloadModel.ValidDownloadAll(VideoDetails));
         }
@@ -684,7 +684,7 @@ namespace PorterTube
                 downloader.DownloadFinished += Downloader_DownloadFinished;
 
                 ////Create a new thread to download file
-                Thread thread = new Thread(() =>
+                Task task = new Task(() =>
                 {
                     try
                     {
@@ -696,10 +696,10 @@ namespace PorterTube
                         v.DownlaodStatus = DownlaodStatus.Failure;
                         v.ImageUrl = System.AppDomain.CurrentDomain.BaseDirectory + "Resources\\sadyoutube.jpg";
                     }
-                })
-                { IsBackground = true };
+                });
+               // { IsBackground = true };
 
-                thread.Start();
+                task.Start();
             }
             catch (Exception)
             {
