@@ -12,7 +12,7 @@ using System.Diagnostics;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTest1
+    public class TestDownloadSubtitel
     {
 
 
