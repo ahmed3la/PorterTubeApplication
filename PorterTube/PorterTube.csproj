@@ -147,7 +147,7 @@
       <Project>{e03cb46b-1bd7-4f2c-9023-f8a849504dc3}</Project>
       <Name>Porter.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WindowsFormsApplication1\Porter.Model.csproj">
+    <ProjectReference Include="..\Porter.Model\Porter.Model.csproj">
       <Project>{50e3a959-4b96-457f-9b7d-8ecab9853f10}</Project>
       <Name>Porter.Model</Name>
     </ProjectReference>

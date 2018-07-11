@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porter.Model", "WindowsFormsApplication1\Porter.Model.csproj", "{50E3A959-4B96-457F-9B7D-8ECAB9853F10}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PorterTube", "PorterTube\PorterTube.csproj", "{D093289B-5C34-4268-BE01-65D4CDF3AB17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porter.Entity", "Porter.Entity\Porter.Entity.csproj", "{E03CB46B-1BD7-4F2C-9023-F8A849504DC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{F3E24D5B-1780-4D82-A063-D943D7F21B48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porter.Model", "Porter.Model\Porter.Model.csproj", "{50E3A959-4B96-457F-9B7D-8ECAB9853F10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +23,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|ARM.Build.0 = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x64.Build.0 = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x86.Build.0 = Debug|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|ARM.ActiveCfg = Release|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|ARM.Build.0 = Release|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x64.ActiveCfg = Release|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x64.Build.0 = Release|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x86.ActiveCfg = Release|Any CPU
-		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x86.Build.0 = Release|Any CPU
 		{D093289B-5C34-4268-BE01-65D4CDF3AB17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D093289B-5C34-4268-BE01-65D4CDF3AB17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D093289B-5C34-4268-BE01-65D4CDF3AB17}.Debug|ARM.ActiveCfg = Debug|Any CPU
@@ -88,26 +72,24 @@ Global
 		{F3E24D5B-1780-4D82-A063-D943D7F21B48}.Release|x64.Build.0 = Release|Any CPU
 		{F3E24D5B-1780-4D82-A063-D943D7F21B48}.Release|x86.ActiveCfg = Release|Any CPU
 		{F3E24D5B-1780-4D82-A063-D943D7F21B48}.Release|x86.Build.0 = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|ARM.Build.0 = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x64.Build.0 = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Debug|x86.Build.0 = Debug|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|ARM.ActiveCfg = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|ARM.Build.0 = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x64.ActiveCfg = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x64.Build.0 = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x86.ActiveCfg = Release|Any CPU
+		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://ahmedola.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Porter.Entity\\Porter.Entity.csproj
-		SccProjectName1 = Porter.Entity
-		SccLocalPath1 = Porter.Entity
-		SccProjectUniqueName2 = PorterTube\\PorterTube.csproj
-		SccProjectName2 = PorterTube
-		SccLocalPath2 = PorterTube
-		SccProjectUniqueName3 = UnitTestProject1\\UnitTestProject1.csproj
-		SccProjectName3 = UnitTestProject1
-		SccLocalPath3 = UnitTestProject1
-		SccProjectUniqueName4 = WindowsFormsApplication1\\Porter.Model.csproj
-		SccProjectName4 = WindowsFormsApplication1
-		SccLocalPath4 = WindowsFormsApplication1
 	EndGlobalSection
 EndGlobal
