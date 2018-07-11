@@ -160,9 +160,6 @@
     <Resource Include="Resources\images.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\images.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\images.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -191,22 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sadyoutube.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Debug\Config\Loging.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="bin\Release\Config\Loging.txt" />
-    <Resource Include="bin\Release\Resources\DownloadPorter.ico" />
-    <Resource Include="bin\Release\Resources\forbidden.png" />
-    <Resource Include="bin\Release\Resources\Forbidden_Symbol_Transparent.svg.png" />
-    <Resource Include="bin\Release\Resources\images.ico" />
-    <Resource Include="bin\Release\Resources\images.jpg" />
-    <Resource Include="bin\Release\Resources\images.png" />
-    <Resource Include="bin\Release\Resources\InternetNotAvailable.jpg" />
-    <Resource Include="bin\Release\Resources\sadyoutube.jpg" />
-    <Resource Include="bin\Release\Resources\Test.ico" />
-    <Resource Include="bin\Release\Resources\ximages.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
