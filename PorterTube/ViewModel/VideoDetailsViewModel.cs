@@ -462,17 +462,32 @@ namespace PorterTube
         private void OnBrowser(string videoId)
         {
             Porter.Entity.VideoDetails videoDetails = new Porter.Entity.VideoDetails();
-
-            videoDetails = VideoDetails.FirstOrDefault(a => a.VideoID == videoId);
-
-            IEnumerable<VideoInfo> videos = DownloadUrlResolver.GetDownloadUrls(videoDetails.Url);
-            //Get url video
-            var video = videos.First(p => p.VideoExtension == videoDetails.SelectedVideoExtensionType.VideoExtension
-                                                    && p.Resolution == videoDetails.SelectedVideoExtensionType.Resolution);
-            if (video != null && !string.IsNullOrWhiteSpace(video.DownloadUrl))
+            try
             {
-                System.Diagnostics.Process.Start(video.DownloadUrl);
+                VideoInfo video;
+                videoDetails = VideoDetails.FirstOrDefault(a => a.VideoID == videoId);
+
+                IEnumerable<VideoInfo> videos = DownloadUrlResolver.GetDownloadUrls(videoDetails.Url);
+                //Get url video
+                if (videoDetails.SelectedVideoExtensionType == null)
+                    video = videos.FirstOrDefault(a => a.VideoType == VideoType.Mp4);
+                else
+                    video = videos.First(p => p.VideoExtension == videoDetails.SelectedVideoExtensionType.VideoExtension
+                                                            && p.Resolution == videoDetails.SelectedVideoExtensionType.Resolution);
+
+                if (video != null && !string.IsNullOrWhiteSpace(video.DownloadUrl))
+                {
+                    System.Diagnostics.Process.Start(video.DownloadUrl);
+                }
+
             }
+            catch (YoutubeParseException ex)
+            {
+                sadyoutube(videoDetails.Url);
+            }
+            catch (Exception)
+            { }
+            
         }
 
         void startDownload(bool isDownloadAll=false)
@@ -692,22 +707,30 @@ namespace PorterTube
                     }
                     catch (Exception)
                     {
-                        var v = VideoDetails.FirstOrDefault(a => a.Url.ToLower() == url.ToLower());
-                        v.DownlaodStatus = DownlaodStatus.Failure;
-                        v.ImageUrl = System.AppDomain.CurrentDomain.BaseDirectory + "Resources\\sadyoutube.jpg";
+                        sadyoutube(url);
                     }
                 });
-               // { IsBackground = true };
+                // { IsBackground = true };
 
                 task.Start();
             }
-            catch (Exception)
+            catch (YoutubeParseException ex)
             {
+                sadyoutube(url);
             }
+            catch (Exception)
+            { }
 
             return downloader;
         }
-  
+
+        private void sadyoutube(string url)
+        {
+            var v = VideoDetails.FirstOrDefault(a => a.Url.ToLower() == url.ToLower());
+            v.DownlaodStatus = DownlaodStatus.Failure;
+            v.ImageUrl = System.AppDomain.CurrentDomain.BaseDirectory + "Resources\\sadyoutube.jpg";
+        }
+
         void fillList(string listName)
         {
             using (Porter.Model.FetchVideoURL cls = new Porter.Model.FetchVideoURL())

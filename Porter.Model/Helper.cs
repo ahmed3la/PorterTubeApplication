@@ -80,7 +80,7 @@ namespace Porter.Model
         {
             if (!string.IsNullOrWhiteSpace(url))
             {
-                if (url.ToLower().Contains("www.youtube.com") &&
+                if (url.ToLower().Contains("youtube.com") &&
                     (url.ToLower().Contains("v=")
                     || url.ToLower().Contains("list="))
                     )

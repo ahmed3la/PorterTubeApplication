@@ -182,7 +182,7 @@ namespace PorterTube.ViewModel
 
                         list.ToList().ForEach(a =>  
                         {
-                            a.VideoPath = dialog.SelectedPath + "\\";
+                            a.VideoPath = dialog.SelectedPath + "\\";                             
                             if (VideoExtensionTypeCustome != null)
                                 a.SelectedVideoExtensionType = VideoExtensionTypeCustome;
                         });
