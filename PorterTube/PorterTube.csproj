@@ -66,10 +66,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="YoutubeExtractor, Version=0.10.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\YoutubeExtractor.0.10.11\lib\net35\YoutubeExtractor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -150,6 +146,10 @@
     <ProjectReference Include="..\Porter.Model\Porter.Model.csproj">
       <Project>{50e3a959-4b96-457f-9b7d-8ecab9853f10}</Project>
       <Name>Porter.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YoutubeExtractor\YoutubeExtractor.csproj">
+      <Project>{ecdc127f-8def-4f99-8300-72c13597339d}</Project>
+      <Name>YoutubeExtractor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

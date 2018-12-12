@@ -53,6 +53,7 @@ namespace Porter.Model
             }
 
             File.WriteAllText(path, output);
+
             return await Task.FromResult(true);
         }
 

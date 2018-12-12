@@ -84,10 +84,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="YoutubeExtractor, Version=0.10.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\YoutubeExtractor.0.10.11\lib\net35\YoutubeExtractor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DownloadModel.cs" />
@@ -122,6 +118,10 @@
     <ProjectReference Include="..\Porter.Entity\Porter.Entity.csproj">
       <Project>{e03cb46b-1bd7-4f2c-9023-f8a849504dc3}</Project>
       <Name>Porter.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YoutubeExtractor\YoutubeExtractor.csproj">
+      <Project>{ecdc127f-8def-4f99-8300-72c13597339d}</Project>
+      <Name>YoutubeExtractor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

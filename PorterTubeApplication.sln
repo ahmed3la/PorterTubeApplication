@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PorterTube", "PorterTube\PorterTube.csproj", "{D093289B-5C34-4268-BE01-65D4CDF3AB17}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{F3E24D5B-1780-4D82-A063-D943D7F21B48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porter.Model", "Porter.Model\Porter.Model.csproj", "{50E3A959-4B96-457F-9B7D-8ECAB9853F10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoutubeExtractor", "YoutubeExtractor\YoutubeExtractor.csproj", "{ECDC127F-8DEF-4F99-8300-72C13597339D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,8 +90,27 @@ Global
 		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x64.Build.0 = Release|Any CPU
 		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x86.ActiveCfg = Release|Any CPU
 		{50E3A959-4B96-457F-9B7D-8ECAB9853F10}.Release|x86.Build.0 = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|ARM.Build.0 = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|x64.Build.0 = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Debug|x86.Build.0 = Debug|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|ARM.ActiveCfg = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|ARM.Build.0 = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|x64.ActiveCfg = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|x64.Build.0 = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|x86.ActiveCfg = Release|Any CPU
+		{ECDC127F-8DEF-4F99-8300-72C13597339D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F72A407C-5158-4DCE-9A10-429306216B9F}
 	EndGlobalSection
 EndGlobal
