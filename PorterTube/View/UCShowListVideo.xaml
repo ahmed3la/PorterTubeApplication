@@ -123,8 +123,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="90"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition Width="77"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
@@ -132,17 +133,21 @@
                 <Button Grid.Row="0" Grid.Column="0" Content="Fetch" 
                         Command="{Binding CommandGetList}" 
                         IsEnabled="{Binding CustomEnabled}"
-                        HorizontalAlignment="Left"  Margin="5"   Width="75"  />
-                <CheckBox Grid.Row="0" Grid.Column="1" Content="Custome"  
+                        HorizontalAlignment="Left"  Margin="5"   Width="35"  />
+                <CheckBox Grid.Row="0" Grid.Column="1" Content="Caption"  
+                          IsChecked="{Binding CaptionTracksEnabled}"
+                          VerticalAlignment="Center" HorizontalAlignment="Left"   Width="62"  Margin="5"  />
+                <CheckBox Grid.Row="0" Grid.Column="2" Content="Custome"  
                           IsChecked="{Binding IsCustome}" IsEnabled="{Binding CustomEnabled}"
-                          VerticalAlignment="Center" HorizontalAlignment="Left"   Width="75"  Margin="5"  />
-                <ComboBox Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left"   Width="300"  Margin="5" 
+                          VerticalAlignment="Center" HorizontalAlignment="Left"   Width="68"  Margin="5"  />
+               
+                <ComboBox Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"   Width="300"  Margin="5" 
                           ItemsSource="{Binding ListVideoExtensionTypeCustom}"
                           DisplayMemberPath="Titel"
                           SelectedItem="{Binding VideoExtensionTypeCustome,Mode=TwoWay}"
                           IsEnabled="{Binding IsCustome,Mode=TwoWay}"
                           ></ComboBox>
-                <Button Grid.Row="0" Grid.Column="3" x:Name="Exit" Content="X" Command="{Binding CommandCancel}" HorizontalAlignment="Right" Width="30" />
+                <Button Grid.Row="0" Grid.Column="4" x:Name="Exit" Content="X" Command="{Binding CommandCancel}" HorizontalAlignment="Right" Width="30" />
  
 
             </Grid>

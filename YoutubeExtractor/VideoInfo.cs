@@ -195,17 +195,26 @@ namespace YoutubeExtractor
         /// Gets the video type (container).
         /// </summary>
         public VideoType VideoType { get; private set; }
-
         /// <summary>
         /// We use this in the <see cref="DownloadUrlResolver.DecryptDownloadUrl" /> method to
         /// decrypt the signature
         /// </summary>
         /// <returns></returns>
         internal string HtmlPlayerVersion { get; set; }
-
+        public List<CaptionTracks> ListCaptionTracks { get;set;}
         public override string ToString()
         {
             return string.Format("Full Title: {0}, Type: {1}, Resolution: {2}p", this.Title + this.VideoExtension, this.VideoType, this.Resolution);
         }
+    }
+
+    public class CaptionTracks
+    {
+        public string baseUrl { get; set; }
+        //public Name name { get; set; }
+        //public string vssId { get; set; }
+        public string languageCode { get; set; }
+        //public string kind { get; set; }
+        //public bool isTranslatable { get; set; }
     }
 }

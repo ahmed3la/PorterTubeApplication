@@ -55,24 +55,7 @@
         <ListView Margin="10,65,10,30" Name="lvVideos" ItemsSource="{Binding VideoDetails,Mode=TwoWay}"  >
 
             <ListView.View>
-                <GridView >
-
-                    <!--<GridViewColumn Header="Image" Width="28">
-                        <GridViewColumn.HeaderTemplate>
-                            <DataTemplate>
-
-                                <CheckBox IsChecked="{Binding RelativeSource={RelativeSource AncestorType=Window},
-                                    Path=DataContext.IsAll}" />
-                            </DataTemplate>
-                        </GridViewColumn.HeaderTemplate>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsActive}" ></CheckBox>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>-->
-
-
+                <GridView > 
                     <GridViewColumn Header="Image" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -111,14 +94,13 @@
                                         </Grid.RowDefinitions>
 
                                         <TextBlock Text="{Binding Titel }" TextWrapping="WrapWithOverflow" Grid.Row="0" Grid.ColumnSpan="2" />
-                                        <!--<Label Content="Video Type" Grid.Column="0" Grid.Row="1"/>-->
+                                        
                                         <TextBlock   Text="{Binding Path=SelectedVideoExtensionType.Titel}"
                                                      TextWrapping="WrapWithOverflow" Grid.Column="2" Grid.Row="2" />
-
-                                        <!--<ComboBox Visibility="{Binding Path=CanSelected}" Grid.Column="2" Grid.Row="1"   DisplayMemberPath="Titel" 
-                                                   ItemsSource="{Binding Path=VideoExtensionType}" 
-                                                    
-                                                  SelectedItem="{Binding SelectedVideoExtensionType,Mode=TwoWay}" Width="230"/>-->
+                                        <!--<TextBlock  Text="{Binding CaptionTracksEnabled }"
+                                                    TextWrapping="WrapWithOverflow"
+                                                    Grid.Row="1" Grid.ColumnSpan="2" />-->
+                                          
                                     </Grid>
                                 </StackPanel>
 
@@ -128,35 +110,6 @@
 
                     </GridViewColumn>
 
-                    <!--<GridViewColumn  Width="100" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate >
-                                <StackPanel>
-                                     
-
-                                    <Button  Content="Run" HorizontalAlignment="Left"    Width="75" 
-                                          CommandParameter="{Binding VideoID}"
-                                           Command="{Binding RelativeSource={RelativeSource AncestorType=Window},
-                                    Path=DataContext.OpenBrowser}" />-->
-
-                                    <!--<Button  Content="test" HorizontalAlignment="Left"    Width="75" 
-                                            >
-                                        <Button.ContextMenu>
-                                            <ContextMenu>
-                                                <MenuItem Header="Cut"/>
-                                                <MenuItem Header="Copy"/>
-                                                <MenuItem Header="Paste"/>
-                                            </ContextMenu>
-                                        </Button.ContextMenu>
-                                    </Button>
-
-
-
-                                </StackPanel>
-
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>-->
                 </GridView>
             </ListView.View>
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace YoutubeExtractor
@@ -88,10 +89,11 @@ namespace YoutubeExtractor
                 var json = LoadJson(videoUrl);
 
                 string videoTitle = GetVideoTitle(json);
+                var captionTracksURL = GetCaptionTracks(json);
 
                 IEnumerable<ExtractionInfo> downloadUrls = ExtractDownloadUrls(json);
 
-                IEnumerable<VideoInfo> infos = GetVideoInfos(downloadUrls, videoTitle).ToList();
+                IEnumerable<VideoInfo> infos = GetVideoInfos(downloadUrls, captionTracksURL, videoTitle).ToList();
 
                 string htmlPlayerVersion = GetHtml5PlayerVersion(json);
 
@@ -240,6 +242,15 @@ namespace YoutubeExtractor
             return regex.Match(js).Result("$1");
              
         }
+        private static List<CaptionTracks> GetCaptionTracks(JObject json)
+        { 
+            JToken streamMap = json["args"]["player_response"];
+            JToken captions = JObject.Parse(streamMap.ToString())
+                ["captions"]["playerCaptionsTracklistRenderer"]["captionTracks"];
+
+            List<CaptionTracks> obj = JsonConvert.DeserializeObject<List<CaptionTracks>>(captions.ToString());
+            return obj;
+        }
 
         private static string GetStreamMap(JObject json)
         {
@@ -255,7 +266,9 @@ namespace YoutubeExtractor
             return streamMapString;
         }
 
-        private static IEnumerable<VideoInfo> GetVideoInfos(IEnumerable<ExtractionInfo> extractionInfos, string videoTitle)
+        private static IEnumerable<VideoInfo> GetVideoInfos(
+            IEnumerable<ExtractionInfo> extractionInfos
+            ,List<CaptionTracks> listCaptionTracks, string videoTitle)
         {
             var downLoadInfos = new List<VideoInfo>();
 
@@ -273,6 +286,7 @@ namespace YoutubeExtractor
                     {
                         DownloadUrl = extractionInfo.Uri.ToString(),
                         Title = videoTitle,
+                        ListCaptionTracks= listCaptionTracks,
                         RequiresDecryption = extractionInfo.RequiresDecryption
                     };
                 }

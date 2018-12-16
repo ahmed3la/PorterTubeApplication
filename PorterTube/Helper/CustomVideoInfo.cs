@@ -50,7 +50,7 @@ namespace PorterTube.Helper
                         VideoType = v.VideoType.ToString(),
                         Titel = "Video Type:" + v.VideoType.ToString() +
                                     new string(' ', 10 - v.VideoType.ToString().Length) +
-                                    "Resolution: " + v.Resolution.ToString()
+                                    "Resolution: " + v.Resolution.ToString() 
                     });
 
                    // _index++;

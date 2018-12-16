@@ -632,8 +632,9 @@ namespace PorterTube
                 {
                     if (video.ProgressPercentage == 100)
                     {
-                        using (FetchSubtitelURL sub = new FetchSubtitelURL())
-                            sub.DownloadSubtitel(video);
+                        if (video.CaptionTracksEnabled)
+                            using (FetchSubtitelURL sub = new FetchSubtitelURL())
+                                sub.DownloadSubtitel(video, videoInfo.ListCaptionTracks);
 
                         video.DownlaodStatus = DownlaodStatus.End;
                     }

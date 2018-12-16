@@ -7,15 +7,22 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using YoutubeExtractor;
 
 namespace Porter.Model
 {
     public class FetchSubtitelURL : IDisposable
     {
-        public bool DownloadSubtitel(VideoDetails videoDetails)
+        public bool DownloadSubtitel(VideoDetails videoDetails, List<CaptionTracks> listCaptionTracks)
         {
-
-            TimedText timeText = getTimedText(videoDetails.VideoID, videoDetails.Titel);
+            string url = "";
+            if (listCaptionTracks == null || listCaptionTracks.Count == 0)
+                return false;
+            else
+            {
+                url = listCaptionTracks[0].baseUrl;
+            }
+            TimedText timeText = getTimedText(url, videoDetails.Titel);
 
             if (timeText != null)
             {
@@ -53,14 +60,14 @@ namespace Porter.Model
             return true;
         }
          
-        private static TimedText getTimedText(string videoId, string titel)
+        private static TimedText getTimedText(string captionTracks, string titel)
         {
             //https://www.youtube.com/api/timedtext?v=h0e2HAPTGF4&lang=en&name=CC&fmt=json3
             // List<VideoDetails> list = new List<VideoDetails>();
             TimedText timeText = new TimedText();
 
-            var url = string.Format("https://www.youtube.com/api/timedtext?v={0}&lang=en&fmt={1}", videoId, "json3");
-
+            //var url = string.Format("https://www.youtube.com/api/timedtext?v={0}&lang=en&fmt={1}", videoId, "json3");
+            var url = string.Format(captionTracks + "&fmt={0}", "json3");
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             if (response.StatusCode == HttpStatusCode.OK)

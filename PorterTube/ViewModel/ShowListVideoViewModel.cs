@@ -103,6 +103,12 @@ namespace PorterTube.ViewModel
             set { customEnabled = value; RaisePropertyChanged("CustomEnabled"); }
         }
 
+        private bool captionTracksEnabled;
+        public bool CaptionTracksEnabled
+        {
+            get { return captionTracksEnabled; }
+            set { captionTracksEnabled = value; RaisePropertyChanged("CaptionTracksEnabled"); }
+        }
 
         private bool isCustome;
         public bool IsCustome
@@ -185,6 +191,9 @@ namespace PorterTube.ViewModel
                             a.VideoPath = dialog.SelectedPath + "\\";                             
                             if (VideoExtensionTypeCustome != null)
                                 a.SelectedVideoExtensionType = VideoExtensionTypeCustome;
+
+                            a.CaptionTracksEnabled = CaptionTracksEnabled;
+                            
                         });
                     }
 
@@ -342,7 +351,7 @@ namespace PorterTube.ViewModel
                                 VideoType = v.VideoType.ToString(),
                                 Titel = "Video Type:" + v.VideoType.ToString() +
                                     new string(' ', 10 - v.VideoType.ToString().Length) +
-                                    "Resolution: " + v.Resolution.ToString()
+                                    "Resolution: " + v.Resolution.ToString() 
                             });
                             //_index++;
                         }
